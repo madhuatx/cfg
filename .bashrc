@@ -324,11 +324,15 @@ if [ $(uname) == "Linux" ]; then
 
     # Scripts common to all configurations
     umask 002
+
     # !! IMPORTANT !! this must go *before* the conda init block
     #
     # Do not automatically activate the base environment
     # during shell initialization.
     export CONDA_AUTO_ACTIVATE_BASE=false
+
+    # local bin/
+    export PATH="$HOME/.local/bin:$PATH"
 
     
     if [ "$(lsb_release -sir)" == $'Ubuntu\n24.04' ]
@@ -469,8 +473,6 @@ if [ $(uname) == "Linux" ]; then
     
     # add special per-host customizations here
     if [ "$(uname -n)" == $'bel-gfx0' ]; then
-        #ROS2 setup
-        # source /opt/ros/humble/setup.bash
         # Linux unlock gnome keyring
         function unlock-keyring ()
         {
@@ -484,8 +486,3 @@ if [ $(uname) == "Linux" ]; then
 
 fi
 # }}}
-
-# Setting PATH for Python 3.12
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
-export PATH
