@@ -308,6 +308,15 @@ if [ $(uname) == "Darwin" ]; then
     if [ ! -f $HOME/.certs/all.pem ]; then
         setup-certs
     fi
+    # configure env vars for commonly used tools
+    cert_path="$HOME/.certs/all.pem"
+    export GIT_SSL_CAINFO="${cert_path}"
+    export AWS_CA_BUNDLE="${cert_path}"
+    export NODE_EXTRA_CA_CERTS="${cert_path}"
+    export CURL_CA_BUNDLE="${cert_path}"
+    
+    # Include cursor cli in PATH
+    export PATH="$HOME/.local/bin:$PATH"
 
 fi
 # }}}
@@ -460,6 +469,9 @@ if [ $(uname) == "Linux" ]; then
     export EDITOR="emacsclient -nw -t"
     export VISUAL="emacsclient -nw -t"
     export LP_ENABLE_TEMP=0
+    
+    # Cursor cli definitions
+    export PATH="$HOME/.local/bin:$PATH"
 
     # add special per-host customizations here
     if [ "$(uname -n)" == $'bel-a100' ]; then
