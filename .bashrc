@@ -444,6 +444,9 @@ if [ $(uname) == "Linux" ]; then
         fi
         unset __conda_setup
         # <<< conda initialize <<<
+
+        # for hpcfund we will use conda because it provides python 3.12
+        conda activate base
     else
         if [[ $- =~ "i" ]]; then #print message only if interactive shell
             echo "Unkown Linux Distribution"
