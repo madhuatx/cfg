@@ -30,4 +30,7 @@ mkdir -p ~/.starship/bin
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y -b ~/.starship/bin
 ln -sf ~/develop/cfg/starship/starship.toml ~/.config/starship.toml 
 
+# setup claude code vars
+ln -sf ~/develop/cfg/claude-code ~/.config/claude-code 
+
 cd ~

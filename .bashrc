@@ -501,3 +501,4 @@ if [ $(uname) == "Linux" ]; then
 
 fi
 # }}}
+[ -f "$HOME/.config/claude-code/env.sh" ] && . "$HOME/.config/claude-code/env.sh"
