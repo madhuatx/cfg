@@ -1,5 +1,5 @@
 source ~/.env
-setenv ANTHROPIC_API_KEY "dummy"
+export ANTHROPIC_API_KEY="dummy"
 export ANTHROPIC_BASE_URL="https://llm-api.amd.com/Anthropic"
 export ANTHROPIC_CUSTOM_HEADERS="Ocp-Apim-Subscription-Key: ${AMD_LLM_GATEWAY_KEY}"
 export ANTHROPIC_MODEL="claude-sonnet-4.5"
